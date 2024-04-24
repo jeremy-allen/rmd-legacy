@@ -1,0 +1,90 @@
+---
+title: "Flexdashboard Example with ggplot2 Brushing"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    social: menu
+    source_code: embed
+runtime: shiny
+---
+
+```{r global, include=FALSE}
+# load data in 'global' chunk so it can be shared by all users of the dashboard
+library(datasets)
+mtcars2 <- mtcars[, c("mpg", "cyl", "wt")]
+```
+
+
+```{r}
+# Reactive that returns the whole dataset if there is no brush
+selectedData <- reactive({
+  data <- brushedPoints(mtcars2, input$plot1_brush)
+  if (nrow(data) == 0)
+    data <- mtcars2
+  data
+})
+```
+
+Column
+----------------------------------------------------------------------
+
+### What is R Markdown?
+
+1.  An authoring framework for data science
+
+2.  A document format (.Rmd)
+
+3.  An R package named `rmarkdown`
+
+4.  A file format for making dynamic documents with R, can include Python, SQL, and more
+
+5.  A tool for integrating prose, code, and results
+
+6.  A computational document
+
+7.  An ecosystem of packages and tools for reports, dashboards, websites, books, and more
+
+8.  Superseded by Quarto
+
+### R Markdown Ecosystem: many ways to solve your research and business problems
+
+-   **Literate Programming**
+-   **Control Documents**
+-   **Templating**
+-   **Data products**
+
+### Literate Programming
+
+**captures code, prose, and output in a single document enhancing learning and repeatability**
+
+Column
+-----------------------------------------------------------------------
+
+### Miles Per Gallon vs. Weight {data-width=600}
+
+```{r}
+library(ggplot2)
+plotOutput("plot1", brush = brushOpts(id = "plot1_brush"))
+output$plot1 <- renderPlot({
+  ggplot(mtcars2, aes(wt, mpg)) + geom_point()
+})
+```
+
+### Miles Per Gallon and Cylinders
+
+```{r}
+renderPlot({
+  ggplot(selectedData(), aes(factor(cyl), mpg))  + geom_boxplot()
+})
+```
+
+Column
+-----------------------------------------------------------------------
+
+### Car Details {data-width=400}
+
+```{r}
+renderTable({
+  selectedData()
+})
+```

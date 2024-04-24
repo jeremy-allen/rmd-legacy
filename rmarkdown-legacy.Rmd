@@ -58,7 +58,7 @@ See <https://rmarkdown.rstudio.com/> and Dr Allison Hill's [Intro to R Markdown]
 
 For example, I can use prose to explain the following code chunks:
 
-In this code chunk I am loading the R packages that will be required for my analysis. The tidyverse is an umbrella package of other packages, including the ggplot2 package. I do not have to load ggplot2 explicitly. The previous two sentences would be a bit much for an in-code comment, but are fine for prose located close to the code.
+In this code chunk I am loading the R packages that will be required for my analysis. The tidyverse is an umbrella package of other packages, including the ggplot2 package. I do not have to load ggplot2 explicitly. The previous two sentences would be a bit much for an in-code comment, but are fine for prose located close to the code [@Welcomme2010].
 
 ```{r}
 library(tidyverse)
@@ -185,6 +185,14 @@ Templating through code loops
 
 -   NOAA examples: Emily Markowitz's package [NMFSReports](https://emilymarkowitz-noaa.github.io/NMFSReports/index.html) and Dr. Eli Holmes's workshop [R Markdown Reports](https://rverse-tutorials.github.io/RWorkflow-NWFSC-2021/week4.html)
 
+-   [Rob Hyndman \| How Rmarkdown changed my life \| RStudio (2020)](https://youtu.be/_D-ux3MqGug?si=zW_6GWe5LU3C4C8c)
+
+-   Rob's [monash](https://github.com/numbats/monash) package of R Markdown templates
+
+-   [Christophe Dervieux \| Business Reports with R Markdown \| RStudio](https://youtu.be/gQ9he9dyfGs?si=Y8VWamaMYIahEUy1)
+
+-   The legend himself, [Yihui Xie \| One R Markdown Document, Fourteen Demos \| RStudio (2020)](https://youtu.be/qLEkUjxk7e8?si=tgaj4Wl_M13JYWmb)
+
 <br>
 
 ## Looking ahead to Quarto
@@ -200,3 +208,5 @@ Templating through code loops
 ## Q&A
 
 [code](https://github.com/jeremy-allen/rmarkdown-legacy-webinar)
+
+## References
